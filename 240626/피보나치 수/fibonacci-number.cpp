@@ -7,7 +7,7 @@ int main() {
     int n;
     cin >> n;
 
-    vector<int> dp = vector<int>(n, 0);
+    vector<int> dp = vector<int>(n+1, 0);
 
     dp[1] = 1;
     dp[2] = 1;
