@@ -11,6 +11,8 @@ int main() {
 
     int n, t;
     cin >> n >> t;
+
+    t %= (2*n);
     
     vector<int> belt = {};
     // 실제로는 2*n짜리 배열
