@@ -15,7 +15,7 @@ int main() {
     vector<int> belt = {};
     // 실제로는 2*n짜리 배열
     for (int k = 0; k < 2; k++) {
-        vector<int> line = vector<int>(3, 0);
+        vector<int> line = vector<int>(n, 0);
         for(int i = 0; i < n; i++) {
             cin >> line[i];
         }
