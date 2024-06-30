@@ -1,8 +1,9 @@
 #include <iostream>
 #include <vector>
 
-#define MAX_N 1000
-#define MOD 1'000'00'007
+#define MAX_N 1'000
+#define MOD 1'000'000'007
+
 using namespace std;
 
 int main() {
