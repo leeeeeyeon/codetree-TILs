@@ -13,7 +13,7 @@ int main() {
     int n;
     cin >> n;
 
-    vector<int> dp = vector<int>(MAX_N, 0);
+    vector<long long> dp = vector<long long>(MAX_N, 0);
 
     dp[0] = 1;
     dp[1] = 2;
