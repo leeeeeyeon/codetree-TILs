@@ -18,7 +18,7 @@ int main() {
 
     for(int i = 2; i <= n; i++) {
         int k = 0;
-        for(int j = 0; j < i; j++) k += dp[j] * dp[n-j-1];
+        for(int j = 0; j < i; j++) k += dp[j] * dp[i-j-1];
 
         dp[i] = k;
     }
