@@ -21,6 +21,7 @@ vector<vector<int>> combi(vector<int> arr) {
         for (int i = 0; i < arr.size(); i++) {
             if (temp[i] == 1) ret.push_back(arr[i]);
         }
+
         results.push_back(ret);
     } while (prev_permutation(temp.begin(), temp.end()));
 
@@ -36,14 +37,14 @@ int main() {
     ll k;
     cin >> n >> k;
 
-    set<ll> s;
+    vector<int> arr;
     for (int i = 0; i < n; i++) {
-        ll elem;
+        int elem;
         cin >> elem;
-        s.insert(elem);
+        arr.push_back(elem);
     }
 
-    vector<int> arr = vector<int>(s.begin(), s.end());
+    sort(arr.begin(), arr.end());
 
     vector<vector<int>> results = combi(arr);
     int cnt = 0;
