@@ -1,32 +1,14 @@
 #include <iostream>
-#include <algorithm>
-#include <set>
-#include <vector>
+#include <unordered_map>
+
+#define MAX_N 100'000
 
 using namespace std;
 
 typedef long long ll;
 
-// n개 중 2개를 고르는 조합
-vector<vector<int>> combi(vector<int> arr) {
-    vector<vector<int>> results;
-
-    if (arr.size() < 2) return results;
-
-    vector<int> temp(arr.size(), 0);
-    temp[0] = temp[1] = 1;
-
-    do {
-        vector<int> ret;
-        for (int i = 0; i < arr.size(); i++) {
-            if (temp[i] == 1) ret.push_back(arr[i]);
-        }
-
-        results.push_back(ret);
-    } while (prev_permutation(temp.begin(), temp.end()));
-
-    return results;
-}
+int arr[MAX_N];
+unordered_map<ll, int> mp;
 
 int main() {
     ios::sync_with_stdio(false);
@@ -37,23 +19,21 @@ int main() {
     ll k;
     cin >> n >> k;
 
-    vector<int> arr;
     for (int i = 0; i < n; i++) {
         int elem;
         cin >> elem;
-        arr.push_back(elem);
+        arr[i] = elem;
     }
 
-    sort(arr.begin(), arr.end());
+    int ret = 0;
+    for (int i = 0; i < n; i++) {
+        int diff = k - arr[i];
+        ret += mp[diff];
 
-    vector<vector<int>> results = combi(arr);
-    int cnt = 0;
-    for (auto ret : results) {
-        ll sum = ret[0] + ret[1];
-        if (sum == k) cnt++;
+        mp[arr[i]]++;
     }
 
-    cout << cnt;
-
+    cout << ret;
+    
     return 0;
 }
