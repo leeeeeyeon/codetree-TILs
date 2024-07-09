@@ -20,7 +20,7 @@ int main() {
 
     vvi board = vvi(n, vector<int>(m, 0));
     int mx = 0; // 마을에서 가장 높은 집
-    pair<int, int> ret = {0, 0}; // {k, 안전 영역의 수}
+    pair<int, int> ret = {1, 0}; // {k, 안전 영역의 수}
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
             cin >> board[i][j];
