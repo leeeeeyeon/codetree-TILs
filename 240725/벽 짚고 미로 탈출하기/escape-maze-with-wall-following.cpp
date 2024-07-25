@@ -20,8 +20,8 @@ bool canMove(int i, int j) {
         int ni = i + dx[k];
         int nj = j + dx[k];
 
-        if (nx < 0 || ny < 0 || nx >= n || ny >= n) continue;
-        if (board[nx][ny] != '#') flag = true;
+        if (ni < 0 || nj < 0 || ni >= n || nj >= n) continue;
+        if (board[ni][nj] != '#') flag = true;
     }
 
     return flag;
@@ -49,6 +49,7 @@ int main() {
     while(true) {
         // 시간초과 반례: 벽으로 둘러쌓인 경우
         if(!canMove(cx, cy)) {
+            cout << cx << ' ' << cy << endl;
             canExit = false;
             break;
         }
