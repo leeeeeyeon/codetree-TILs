@@ -49,7 +49,6 @@ int main() {
     while(true) {
         // 시간초과 반례: 벽으로 둘러쌓인 경우
         if(!canMove(cx, cy)) {
-            cout << cx << ' ' << cy << endl;
             canExit = false;
             break;
         }
