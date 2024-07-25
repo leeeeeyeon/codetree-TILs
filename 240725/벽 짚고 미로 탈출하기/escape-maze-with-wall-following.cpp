@@ -18,7 +18,7 @@ bool canMove(int i, int j) {
 
     for (int k = 0; k < 4; k++) {
         int ni = i + dx[k];
-        int nj = j + dx[k];
+        int nj = j + dy[k];
 
         if (ni < 0 || nj < 0 || ni >= n || nj >= n) continue;
         if (board[ni][nj] != '#') flag = true;
