@@ -20,7 +20,7 @@ bool canMove(int i, int j) {
         int ni = i + dx[k];
         int nj = j + dy[k];
 
-        if (ni < 0 || nj < 0 || ni >= n || nj >= n) continue;
+        if (ni < 0 || nj < 0 || ni >= n || nj >= n) flag = true;
         if (board[ni][nj] != '#') flag = true;
     }
 
