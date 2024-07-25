@@ -1,14 +1,15 @@
 #include <iostream>
 
 #define MAX_N 100
-
+#define DIR_NUM 4
 using namespace std;
 
 char board[MAX_N][MAX_N];
-int n, sx, sy;
+int n;
 int cx, cy, nx, ny;
 int rx, ry; // nx, ny의 오른쪽 칸
 int dir = 0;
+bool visited[MAX_N][MAX_N][DIR_NUM];
 
 int dx[4] = {0, -1, 0, 1};
 int dy[4] = {1, 0, -1, 0};
@@ -33,10 +34,9 @@ int main() {
     cout.tie(NULL);
 
     cin >> n;
-    cin >> sx >> sy;
-
-    cx = --sx;
-    cy = --sy;
+    cin >> cx >> cy;
+    cx--;
+    cy--;
  
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
@@ -47,11 +47,12 @@ int main() {
     int t = 0;
     bool canExit = true;
     while(true) {
-        // 시간초과 반례: 벽으로 둘러쌓인 경우
-        if(!canMove(cx, cy)) {
+        if (visited[cx][cy][dir]) {
             canExit = false;
             break;
         }
+
+        visited[cx][cy][dir] = true;
 
         // nx, ny를 구해
         nx = cx + dx[dir];
@@ -95,12 +96,6 @@ int main() {
 
             // 시간 증가
             t += 2;
-        }
-
-        // 미로 탈출 불가능 == 초기 상태와 동일
-        if (cx == sx && cy == sy && dir == 0) {
-            canExit = false;
-            break;
         }
     }
 
