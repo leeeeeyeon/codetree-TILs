@@ -13,6 +13,20 @@ int dir = 0;
 int dx[4] = {0, -1, 0, 1};
 int dy[4] = {1, 0, -1, 0};
 
+bool canMove(int i, int j) {
+    bool flag = false;
+
+    for (int k = 0; k < 4; k++) {
+        int ni = i + dx[k];
+        int nj = j + dx[k];
+
+        if (nx < 0 || ny < 0 || nx >= n || ny >= n) continue;
+        if (board[nx][ny] != '#') flag = true;
+    }
+
+    return flag;
+}
+
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
@@ -33,6 +47,12 @@ int main() {
     int t = 0;
     bool canExit = true;
     while(true) {
+        // 시간초과 반례: 벽으로 둘러쌓인 경우
+        if(!canMove(cx, cy)) {
+            canExit = false;
+            break;
+        }
+
         // nx, ny를 구해
         nx = cx + dx[dir];
         ny = cy + dy[dir];
