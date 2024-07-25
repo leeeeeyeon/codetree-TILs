@@ -97,8 +97,8 @@ int main() {
             t += 2;
         }
 
-        // 미로 탈출 불가능 == 원점으로 돌아왔을 때
-        if (cx == sx && cy == sy) {
+        // 미로 탈출 불가능 == 초기 상태와 동일
+        if (cx == sx && cy == sy && dir == 0) {
             canExit = false;
             break;
         }
