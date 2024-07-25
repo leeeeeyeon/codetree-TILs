@@ -39,6 +39,7 @@ int main() {
         }
     }
 
+    bool moved = false;
     do {
         cout << board[cx][cy] << ' ';
 
@@ -50,13 +51,14 @@ int main() {
             if (board[nx][ny] > board[cx][cy]) {
                 cx = nx;
                 cy = ny;
+                moved = true;
                 break;
             }
         }
     } while (canMove(cx, cy));
 
     // 마지막으로 방문한 원소
-    cout << board[cx][cy];
+    if (moved) cout << board[cx][cy];
 
     return 0;
 }
