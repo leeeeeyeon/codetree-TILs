@@ -22,7 +22,7 @@ int main() {
 
     int mx = 0;
     for (int i = 1; i <= n-k; i++) {
-        int rangeSum = sum[i+2] - sum[i];
+        int rangeSum = sum[i+k] - sum[i];
         if (rangeSum > mx) mx = rangeSum;
     }
 
