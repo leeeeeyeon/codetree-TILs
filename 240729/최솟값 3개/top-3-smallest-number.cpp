@@ -27,7 +27,9 @@ int main() {
             int c = -pq.top();
             pq.pop();
 
-            cout << a * b * c << '\n';
+            // 형 변환을 붙이지 않으면 결과가 int 타입으로 계산되어 오버플로우 발생
+            long long result = (long long) a * b * c;
+            cout << result << '\n';
 
             pq.push(-a);
             pq.push(-b);
