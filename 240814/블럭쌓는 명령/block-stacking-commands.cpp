@@ -24,7 +24,7 @@ int main() {
         blocks[b+1]--;
     }
 
-    for (int i = 1; i <= n; i++) {
+    for (int i = 1; i <= n+1; i++) {
         blocks[i] += blocks[i-1];
     }
 
