@@ -32,7 +32,7 @@ int main() {
     sort(blocks.begin(), blocks.end());
 
     // 가운데 값 출력
-    cout << blocks[n/2+1];
+    cout << blocks[blocks.size()/2+1];
 
     return 0;
 }
