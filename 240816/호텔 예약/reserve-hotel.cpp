@@ -20,6 +20,12 @@ int main() {
         points.push_back({e, -1});
     }
 
+    if (n == 1) {
+        cout << 1;
+        
+        return 0;
+    }
+
     sort(points.begin(), points.end());
 
     int cnt = 0; // 방의 수
