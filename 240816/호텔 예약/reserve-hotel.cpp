@@ -22,7 +22,7 @@ int main() {
 
     if (n == 1) {
         cout << 1;
-        
+
         return 0;
     }
 
@@ -30,11 +30,20 @@ int main() {
 
     int cnt = 0; // 방의 수
     int mx = 0; // 최대로 겹치는 구간의 수
+    int prevEnd = 0;
     for (auto point : points) {
-        if (point.second == 1) cnt++;
-        else if (point.second == -1) cnt--;
+        if (point.second == 1) {
+            cnt++;
+            if (prevEnd == point.first) cnt++;
+        }
+        else if (point.second == -1) {
+            cnt--;
+            prevEnd = point.first;
+        }
 
         mx = max(mx, cnt);
+
+        if (point.second == 1 && prevEnd == point.first) cnt--;
     }
 
     cout << mx;
