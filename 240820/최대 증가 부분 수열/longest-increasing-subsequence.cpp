@@ -12,7 +12,7 @@ int main() {
     int n;
     cin >> n;
 
-    vector<int> arr = vector<int>(n, 0);
+    vector<int> arr = vector<int>(n+1, 0);
     for (int i = 1; i <= n; i++) {
         cin >> arr[i];
     }
