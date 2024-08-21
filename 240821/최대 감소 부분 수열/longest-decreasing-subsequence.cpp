@@ -18,19 +18,13 @@ int main() {
         cin >> arr[i];
     }
 
-    if (n == 1) {
-        cout << 1;
-        return 0;
-    }
-
     // dp[i]: i번째 원소를 마지막으로 하는 LDS의 길이
     // 0 ~ i-1번째 원소 중 arr[i]보다 큰 값을 가지는 원소 중 가장 큰 DP 값 + 1
-    vector<int> dp = vector<int>(n+1, 0);
-    dp[1] = 1;
+    vector<int> dp = vector<int>(n+1, 1);
 
     for (int i = 2; i <= n; i++) {
         for (int j = 0; j < i; j++) {
-            if (arr[j] > arr[i]) dp[i] = max(dp[i], dp[j]+1);
+            if (arr[j] > arr[i]) dp[i] = max(dp[j]+1, 1);
         }
     }
 
