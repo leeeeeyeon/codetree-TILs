@@ -24,7 +24,7 @@ int main() {
 
     for (int i = 1; i <= n; i++) {
         for (int j = 0; j < i; j++) {
-            if (arr[j] > arr[i]) dp[i] = max(dp[j]+1, 1);
+            if (arr[j] > arr[i]) dp[i] = max(dp[i], dp[j]+1);
         }
     }
 
