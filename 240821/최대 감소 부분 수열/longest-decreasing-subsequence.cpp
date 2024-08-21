@@ -23,28 +23,21 @@ int main() {
         return 0;
     }
 
-    vector<int> dp;
-    dp.push_back(0);
-    dp.push_back(arr[1]);
+    // dp[i]: i번째 원소를 마지막으로 하는 LDS의 길이
+    // 0 ~ i-1번째 원소 중 arr[i]보다 큰 값을 가지는 원소 중 가장 큰 DP 값 + 1
+    vector<int> dp = vector<int>(n+1, 0);
+    dp[1] = 1;
 
     for (int i = 2; i <= n; i++) {
-        // 순차 탐색으로 1~i번째 원소 중 가장 작은 원소를 찾아
-        int mn = INT_MAX;
-        for (int j = 1; j <= i; j++) {
-            mn = min(mn, arr[j]);
-        }
-
-        // dp의 마지막 원소랑 비교
-        // mn이 더 크면 갱신
-        // mn이 더 작으면 뒤에 원소 추가
-        if (dp[dp.size()-1] < mn) {
-            dp[dp.size()-1] = mn;
-        } else if (dp[dp.size()-1] > mn) {
-            dp.push_back(mn);
+        for (int j = 0; j < i; j++) {
+            if (arr[j] > arr[i]) dp[i] = dp[j] + 1;
         }
     }
 
-    cout << dp.size() - 1;
+    int result = 0;
+    for (auto elem : dp) result = max(result, elem);
+    
+    cout << result;
 
     return 0;
 }
