@@ -22,7 +22,7 @@ int main() {
     // 0 ~ i-1번째 원소 중 arr[i]보다 큰 값을 가지는 원소 중 가장 큰 DP 값 + 1
     vector<int> dp = vector<int>(n+1, 1);
 
-    for (int i = 2; i <= n; i++) {
+    for (int i = 1; i <= n; i++) {
         for (int j = 0; j < i; j++) {
             if (arr[j] > arr[i]) dp[i] = max(dp[j]+1, 1);
         }
