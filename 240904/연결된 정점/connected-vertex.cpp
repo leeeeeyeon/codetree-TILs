@@ -58,7 +58,7 @@ int main() {
         }
 
         for (int i = 1; i <= n; i++) {
-            parent[i] = findParent(i);
+            parent[i] = findParent(parent[i]);
         }
     }
 
