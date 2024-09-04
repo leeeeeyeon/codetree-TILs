@@ -5,6 +5,7 @@
 using namespace std;
 
 int parent[MAX_N+1];
+int sz[MAX_N+1]; // 연결된 정점의 개수를 배열로 따로 관리
 
 int findParent(int x) {
     if (x == parent[x]) return x;
@@ -18,8 +19,15 @@ void merge(int a, int b) {
 
     if (A == B) return;
 
-    if (A < B) parent[B] = parent[A];
-    else parent[B] = parent[A];
+    if (A < B) {
+        parent[B] = parent[A];
+        sz[A] += sz[B];
+    }
+
+    else {
+        parent[B] = parent[A];
+        sz[B] += sz[A];
+    }
 }
 
 int main() {
@@ -30,9 +38,10 @@ int main() {
     int n, m;
     cin >> n >> m;
 
-    // parent 배열 초기화
+    // parent, sz 배열 초기화
     for (int i = 1; i <= n; i++) {
         parent[i] = i;
+        sz[i] = 1;
     }
 
     for (int i = 0; i < m; i++) {
@@ -49,16 +58,7 @@ int main() {
             int a;
             cin >> a;
 
-            int cnt = 0; // 정점 a와 연결된 정점의 개수
-            for (int i = 1; i <= n; i++) {
-                if (parent[i] == parent[a]) cnt++;
-            }
-
-            cout << cnt << '\n';
-        }
-
-        for (int i = 1; i <= n; i++) {
-            parent[i] = findParent(parent[i]);
+            cout << sz[a] << '\n';
         }
     }
 
