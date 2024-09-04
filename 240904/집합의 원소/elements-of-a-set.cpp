@@ -39,6 +39,8 @@ int main() {
         if (cmd == 0) {
             // a가 포함된 집합과 b가 포함된 집합을 합침
             // 이미 같은 집합에 속한다면 아무 것도 하지 X
+            if (parent[a] == parent[b]) continue;
+            
             merge(parent, a, b);
         }
         else if (cmd == 1) {
