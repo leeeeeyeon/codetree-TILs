@@ -58,7 +58,8 @@ int main() {
             int a;
             cin >> a;
 
-            cout << sz[a] << '\n';
+            int A = findParent(a);
+            cout << sz[A] << '\n';
         }
     }
 
