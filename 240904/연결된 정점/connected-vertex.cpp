@@ -51,12 +51,16 @@ int main() {
 
             int cnt = 0; // 정점 a와 연결된 정점의 개수
             for (int i = 1; i <= n; i++) {
-                if (findParent(i) == findParent(a)) cnt++;
+                if (parent[i] == parent[a]) cnt++;
             }
 
             cout << cnt << '\n';
         }
+
+        for (int i = 1; i <= n; i++) {
+            parent[i] = findParent(i);
+        }
     }
-    
+
     return 0;
 }
