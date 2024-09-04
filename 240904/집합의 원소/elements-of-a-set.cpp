@@ -3,15 +3,17 @@
 
 using namespace std;
 
-int findParent(vector<int> parent, int x) {
-    if (x == parent[x]) return parent[x];
+int parent[MAX_N+1];
 
-    return parent[x] = findParent(parent, parent[x]);
+int findParent(int x) {
+    if (x == parent[x]) return x;
+
+    return parent[x] = findParent(parent[x]);
 }
 
-void merge(vector<int> parent, int a, int b) {
-    int A = findParent(parent, a);
-    int B = findParent(parent, b);
+void merge(int a, int b) {
+    int A = findParent(a);
+    int B = findParent(b);
 
     if (A < B) parent[B] = parent[A];
     else if (A > B) parent[A] = parent[B];
@@ -25,8 +27,6 @@ int main() {
     int n, m; // 정수의 개수, 연산의 횟수
     cin >> n >> m;
 
-    vector<int> parent = vector<int>(n+1);
-
     // parent 배열 초기화
     for (int i = 1; i <= n; i++) {
         parent[i] = i;
@@ -39,14 +39,12 @@ int main() {
         if (cmd == 0) {
             // a가 포함된 집합과 b가 포함된 집합을 합침
             // 이미 같은 집합에 속한다면 아무 것도 하지 X
-            if (findParent(parent, a) == findParent(parent, b)) continue;
-
-            merge(parent, a, b);
+            merge(a, b);
         }
         else if (cmd == 1) {
             // a와 b가 같은 집합 > 1 출력
             // 그렇지 X > 0 출력
-            if (findParent(parent, a) == findParent(parent, b)) cout << 1 << '\n';
+            if (findParent(a) == findParent(b)) cout << 1 << '\n';
             else cout << 0 << '\n';
         }
     }
