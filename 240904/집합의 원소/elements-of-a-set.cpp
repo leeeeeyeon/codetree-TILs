@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 
+#define MAX_N 100'000
+
 using namespace std;
 
 int parent[MAX_N+1];
