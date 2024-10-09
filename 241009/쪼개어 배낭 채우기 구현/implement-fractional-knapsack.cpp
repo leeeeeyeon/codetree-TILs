@@ -5,8 +5,8 @@
 using namespace std;
 
 bool comp(pair<int, int> a, pair<int, int> b) {
-    double valuePerWeightA = a.second / a.first;
-    double valuePerWeightB = b.second / b.first;
+    double valuePerWeightA = (double) a.second / a.first;
+    double valuePerWeightB = (double) b.second / b.first;
 
     return valuePerWeightA > valuePerWeightB;
 }
@@ -54,3 +54,5 @@ int main() {
 
     return 0;
 }
+
+// 피드백) double 타입에 int가 저장되지 않도록 형변환 주의
