@@ -28,14 +28,12 @@ int main() {
     if (allZero) {
         cout << *max_element(arr.begin(), arr.end());
     } else {
-        for (int i = 0; i < n-1; i++) {
-            ll sum = arr[i];
-            // 연속 부분 수열의 원소들의 합이 음수가 아닐 동안
-            while (i < n-1 && sum + arr[i+1] >= 0) {
-                sum += arr[i+1];
-                answer = max(answer, sum);
-                i++;
-            }
+        ll sum = 0;
+        for (int i = 0; i < n; i++) {
+            if (sum < 0) sum = arr[i];
+            else sum += arr[i];
+
+            answer = max(answer, sum);
         }
         cout << answer;
     }
