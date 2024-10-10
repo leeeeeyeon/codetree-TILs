@@ -32,13 +32,12 @@ int main() {
         int left = 0;
         int right = arr.size()-1;
 
-        bool find = false;
+        int answer = -1;
         while (left <= right) {
             int mid = (left + right) / 2;
 
             if (arr[mid] == num) {
-                cout << mid+1 << '\n';
-                find = true;
+                answer = mid+1;
                 break;
             } else if (arr[mid] > num) { // 왼쪽 구간 탐색
                 right = mid-1;
@@ -47,7 +46,7 @@ int main() {
             }
         }
 
-        if (!find) cout << -1 << '\n';
+        cout << answer << '\n';
     }
 
     return 0;
