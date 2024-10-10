@@ -20,15 +20,6 @@ int main() {
     for (int i = 0; i < m; i++) {
         cin >> num;
 
-        // arr에서 num이 몇 번째로 나왔는지 구해야 함 (인덱스 1부터 시작)
-        
-        // num이 범위 밖인 경우 -1 출력
-        if (num < arr[0] || num >> arr[arr.size()-1]) {
-            cout << -1 << '\n';
-            continue;
-        }
-
-        // 이분 탐색
         int left = 0;
         int right = arr.size()-1;
 
