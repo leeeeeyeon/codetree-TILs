@@ -5,17 +5,15 @@ using namespace std;
 
 void printNumbers(int k, int n, vector<int> &arr) {
     if (arr.size() == n) {
-        int cnt = 0;
-        int target = arr[0];
-        for (int elem : arr) {
-            if (elem == target) cnt++;
-            else {
-                target = elem;
-                cnt = 1;
+        bool canPrint = true;
+        for (int i = 0; i <= arr.size()-3; i++) {
+            if (arr[i] == arr[i+1] && arr[i] == arr[i+2]) {
+                canPrint = false;
+                break;
             }
         }
 
-        if (cnt < 3) {
+        if (canPrint) {
             for (int elem : arr) cout << elem << ' ';
             cout << '\n';
         }
