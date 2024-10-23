@@ -9,14 +9,17 @@ void printNumbers(int k, int n, vector<int> &arr) {
         int target = arr[0];
         for (int elem : arr) {
             if (elem == target) cnt++;
-            else target = elem;
+            else {
+                target = elem;
+                cnt = 1;
+            }
         }
 
         if (cnt < 3) {
             for (int elem : arr) cout << elem << ' ';
             cout << '\n';
         }
-        
+
         return;
     }
 
