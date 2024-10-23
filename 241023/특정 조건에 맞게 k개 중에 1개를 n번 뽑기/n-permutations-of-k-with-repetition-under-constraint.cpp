@@ -6,10 +6,13 @@ using namespace std;
 void printNumbers(int k, int n, vector<int> &arr) {
     if (arr.size() == n) {
         bool canPrint = true;
-        for (int i = 0; i <= arr.size()-3; i++) {
-            if (arr[i] == arr[i+1] && arr[i] == arr[i+2]) {
-                canPrint = false;
-                break;
+
+        if (arr.size() >= 3) {
+            for (int i = 0; i <= arr.size()-3; i++) {
+                if (arr[i] == arr[i+1] && arr[i] == arr[i+2]) {
+                    canPrint = false;
+                    break;
+                }
             }
         }
 
